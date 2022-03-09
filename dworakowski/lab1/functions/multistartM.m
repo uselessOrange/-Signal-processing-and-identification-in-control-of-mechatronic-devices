@@ -1,7 +1,6 @@
 function [best,meanms,stdms,Results,Step]=multistartM(reps)
 %[best,meanms,stdms,Results,Step]=multistartF(reps)
 
-addpath C:\Users\mikol\Desktop\signals\dworakowski\FunctionsForOptimization;
 
 
 

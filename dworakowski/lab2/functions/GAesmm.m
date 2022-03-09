@@ -1,4 +1,4 @@
-function [bestresult,Results,meanGAes,stdGAes,BestHistory,CurrentHistory,iter] = GAes(reps)
+function [bestresult,Results,meanGAes,stdGAes,BestHistory,CurrentHistory,iter] = GAesmm(reps)
 %[bestresult,Results,meanGAes,stdGAes,BestHistory,CurrentHistory] = GAes(reps)
 %genetc algorithm, elite succesion, manyminima_5
 
@@ -8,7 +8,6 @@ function [bestresult,Results,meanGAes,stdGAes,BestHistory,CurrentHistory,iter] =
 
 
 
-addpath C:\Users\mikol\Desktop\signals\dworakowski\FunctionsForOptimization;
 
 FunctionForOptimization = str2func('nof_2D_manyminima_5');
  
@@ -73,7 +72,7 @@ end
 %storing best individual
 BestHistory(repetition,iter) = Population(Indices(1)).OF;
 CurrentHistory(repetition,iter) = Population(Indices(floor(P_size/2))).OF;
-BestIndividualGenome(iter) = Population(Indices(1));
+%BestIndividualGenome(iter) = Population(Indices(1));
 
 %Keep best performer unchanged
 NewPopulation(1) = Population(Indices(1));

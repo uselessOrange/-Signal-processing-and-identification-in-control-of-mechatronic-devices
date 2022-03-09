@@ -4,7 +4,7 @@
 % "FunctionsForOptimization"
  
 clear;
-addpath C:\Users\mikol\Desktop\signals\dworakowski\FunctionsForOptimization
+
  
 %% Optimization task:
 FunctionForOptimization = str2func('nof_2D_fewminima_5');

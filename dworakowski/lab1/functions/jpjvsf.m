@@ -1,7 +1,6 @@
 function [best,meanjpjvsm,stdjpjvsm,Results,Step]=jpjvsf(reps)
 %function [best,meanjpjvsm,stdjpjvsm,Results]=jpjvsf()
 
-addpath C:\Users\mikol\Desktop\signals\dworakowski\FunctionsForOptimization
  
 FunctionForOptimization = str2func('nof_2D_fewminima_5');
  

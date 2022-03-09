@@ -10,7 +10,7 @@ function [bestresult,Results,meanGAesVar,stdGAesVar,BestHistory,CurrentHistory,S
 
 
 
-addpath C:\Users\mikol\Desktop\signals\dworakowski\FunctionsForOptimization;
+
 
 FunctionForOptimization = str2func('nof_2D_fewminima_5');
  

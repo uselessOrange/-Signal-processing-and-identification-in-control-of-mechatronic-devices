@@ -2,13 +2,7 @@ function [bestresult,Results,meanGAmm,stdGAmm,BestHistory,CurrentHistory] = GAmm
 %[bestresult,Results,meanGAmm,stdGAmm,BestHistory,CurrentHistory] = GAmm(reps)
 %genetc algorithm, no elite succesion, manyminima_5
 
- 
 
-
-
-
-
-addpath C:\Users\mikol\Desktop\signals\dworakowski\FunctionsForOptimization;
 
 FunctionForOptimization = str2func('nof_2D_manyminima_5');
  
