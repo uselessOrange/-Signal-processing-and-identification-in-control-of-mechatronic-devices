@@ -14,8 +14,8 @@ MaxRangeX = [-10 10];  % Range of parameters for optimization
 MaxRangeY = [-10 10];
  
 MaxSteps = 71;         % How many iterations do we perform?
-FunctionPlot = 1;       % change to 0 If you want to get rid of the underlying function plot 
-PointPlot = 1;          % Change to 0 if you want to get rid of the visualization
+FunctionPlot = 0;       % change to 0 If you want to get rid of the underlying function plot 
+PointPlot = 0;          % Change to 0 if you want to get rid of the visualization
 ConvergenceColor = 'r'; % Change color of the convergence curve here
 %close all              % Comment this out if you want to have many convergence curves plotted
  

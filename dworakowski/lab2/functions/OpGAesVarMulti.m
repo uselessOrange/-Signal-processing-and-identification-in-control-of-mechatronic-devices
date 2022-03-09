@@ -1,7 +1,7 @@
-n=10;
+n=50;
 
 [bestresult,Results,meanGAesVarMulti,stdGAesVarMulti,BestHistory,CurrentHistory,Step] = ...
-    GAesVarMulti(10,50,20,10,2,2,10);
+    GAesVarMulti(n,40,25,7,10,2.3,2.9);
 
 figure(1);
 xlabel('Iteration number');

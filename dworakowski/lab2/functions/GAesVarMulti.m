@@ -58,6 +58,7 @@ CurrentHistory(repetition,iter) = Population(Indices(floor(P_size/2))).OF;
 
 %Keep best performer unchanged
 NewPopulation(1) = Population(Indices(1));
+NewPopulation(2) = Population(Indices(2));
 
 %cearting new population
 for k = 2:1:P_size
