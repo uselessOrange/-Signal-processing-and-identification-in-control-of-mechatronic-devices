@@ -1,60 +1,38 @@
-function [bestresult,Results,meanGAesVar,stdGAesVar,BestHistory,CurrentHistory,Step]...
-    = GAesVarM(reps,MaxSteps,P_size,n,InitialStep,P1,P2)
-%[bestresult,Results,meanGAesVar,stdGAesVar,BestHistory,CurrentHistory,Step] = GAes(reps,MaxSteps,P_size,n,InitialStep,P1,P2)
-%genetc algorithm, elite succesion, manyminima_5
-
+function [bestresult,Results,meanGAesVarMulti,stdGAesVarMulti,BestHistory,CurrentHistory,Step]...
+    = GAesVarMulti(reps,MaxSteps,P_size,n,InitialStep,P1,P2)
 
  
 
-
-
-
-
-FunctionForOptimization = str2func('nof_2D_manyminima_5');
+FunctionForOptimization = str2func('nof_4D_multidimensional_5');
  
 
-MaxRangeX = [-10 10];  % Range of parameters for optimization
+MaxRangeX = [-10 10];  
 MaxRangeY = [-10 10];
  
-%MaxSteps = 40;         % How many iterations do we perform?
 
  
-    
  
-%% Map initialization
-InitialRangeX = MaxRangeX;      % This is the range from which we can draw points.
+InitialRangeX = MaxRangeX;      
 InitialRangeY = MaxRangeY;
+ 
 
-
-    
-
-%% The main optimization loop
-    %extraMetaparameters
-
-  %  P_size=50;
-  %  n = 40;
+for repetition = 1:reps
    
 
-
-    %loop for repetition of algo
-for repetition = 1:reps
-
-%intraMetaparameters
-
-    EndingCondition = 0;
+EndingCondition = 0;
     iter = 0;
-    tic;
+   
 
-   % InitialStep = 2; % Exploration/exploitation balance parameters:
-%P1 = 2;
-% P2 = 10;
+  
+ 
+  
 
-
-%initializing population
     for k = 1:P_size
         Population(k).OF = 5000;
 Population(k).Parameters(1) = InitialRangeX(1) + rand()*(InitialRangeX(2) - InitialRangeX(1));
 Population(k).Parameters(2) = InitialRangeY(1) + rand()*(InitialRangeY(2) - InitialRangeY(1));
+Population(k).Parameters(3) = InitialRangeY(1) + rand()*(InitialRangeY(2) - InitialRangeY(1));
+Population(k).Parameters(4) = InitialRangeY(1) + rand()*(InitialRangeY(2) - InitialRangeY(1));
     end
 
     while(EndingCondition == 0)
@@ -71,6 +49,7 @@ end
 %sorting individuals acc to fitness
 [~,Indices] = sortrows([Population(:).OF]');
         
+
 
 %storing best individual
 BestHistory(repetition,iter) = Population(Indices(1)).OF;
@@ -97,6 +76,8 @@ NewPopulation(k).Parameters(1) = Population(Indices(ind2)).Parameters(1);
 NewPopulation(k).Parameters = NewPopulation(k).Parameters + ...
 Step(iter)*randn(size(NewPopulation(k).Parameters));
 
+
+
 %overwriting last value of costfunction
 NewPopulation(k).OF = Inf;
 
@@ -108,20 +89,21 @@ end
 %replaceing parent pop with child pop
 Population = NewPopulation;
 
+
+
     if(iter >= MaxSteps)
         EndingCondition = 1;    % To stop the while loop from running
     else 
         
     end
-       
+    Results(repetition) = BestHistory(end);
         
-         Results(repetition) = BestHistory(end);
     end
-   meanGAesVar=mean(Results);
-   stdGAesVar=std(Results);
+ meanGAesVarMulti=mean(Results);
+   stdGAesVarMulti=std(Results);
    bestresult(1,repetition)=min(Results);
+    
 
- 
-   
 end
 end
+

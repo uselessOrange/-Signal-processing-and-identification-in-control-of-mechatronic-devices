@@ -75,7 +75,7 @@ end
 %storing best individual
 BestHistory(repetition,iter) = Population(Indices(1)).OF;
 CurrentHistory(repetition,iter) = Population(Indices(floor(P_size/2))).OF;
-
+BestIndividualGenome(iter) = Population(Indices(1));
 
 %Keep best performer unchanged
 NewPopulation(1) = Population(Indices(1));
