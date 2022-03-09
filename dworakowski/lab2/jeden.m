@@ -56,7 +56,8 @@ end
     %Metaparameters
 
     P_size=28;
-    n = 24;
+   % n = 24;
+   n=15;
     Step = 1;
 
     EndingCondition = 0;
