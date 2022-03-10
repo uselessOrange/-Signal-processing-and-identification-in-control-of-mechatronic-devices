@@ -1,7 +1,6 @@
 n=5;
 
-[bestresult,Results,meanGAesVar,stdGAesVar,BestHistory,CurrentHistory,Step] = ...
-    GAesVarF(n,38,21,14,15,2,3);
+[best,meanms,stdms,Results,BestHistory,CurrentHistory,Step]=multistartF(n,14,9,10,1.8,1.2);
 
 figure(1);
 xlabel('Iteration number');

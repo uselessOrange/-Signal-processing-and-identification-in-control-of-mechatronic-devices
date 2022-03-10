@@ -1,4 +1,5 @@
-function [best,meanms,stdms,Results,Step]=multistartF(reps)
+function [best,meanms,stdms,Results,BestHistory,CurrentHistory,Step]=...
+    multistartF(reps,MaxSteps,Starts,InitialStep,P1,P2)
 %[best,meanms,stdms,Results,Step]=multistartF(reps)
 
 
@@ -10,25 +11,24 @@ FunctionForOptimization = str2func('nof_2D_fewminima_5');
 MaxRangeX = [-10 10];  
 MaxRangeY = [-10 10];
  
-MaxSteps = 19;         
+%MaxSteps = 19;         
 
 
 InitialRangeX = MaxRangeX;      
 InitialRangeY = MaxRangeY;
 
 g_step = 0.01;
-Step=1;
-Starts = 7;
-iter = 0;
 
-    InitialStep = 2; % Exploration/exploitation balance parameters:
-    P1 = 5;
-    P2 = 3;
+% Starts = 7;
+
+%     InitialStep = 2; % Exploration/exploitation balance parameters:
+%     P1 = 5;
+%     P2 = 3;
 
     for repetition = 1:reps
         CurrentMin = 50000;
 
-EndingCondition = 0;
+
 iter = 0;
     for starts =1:Starts
     EndingCondition = 0;
@@ -66,7 +66,8 @@ iter = 0;
 % following line needs to be modified. The 0 passed to the function denotes the fact,
 % that the function is constant in time.
         CurrentValue =  FunctionForOptimization([NewX,NewY]);       
-        
+%         BestHistory(repetition,iter) = CurrentMin;
+%         CurrentHistory(iter) = CurrentValue;
         if(CurrentValue < CurrentMin)
             CurrentMin = CurrentValue;  
             
@@ -79,8 +80,8 @@ iter = 0;
       
         
         
-        BestHistory(iter) = CurrentMin;         % Here we store our historically best result
-        CurrentHistory(iter) = CurrentValue;    % Here we store our currently investigated result
+        BestHistory(repetition,iter) = CurrentMin;         % Here we store our historically best result
+        CurrentHistory(repetition,iter) = CurrentValue;    % Here we store our currently investigated result
         
     if(iter1 >= MaxSteps)
         EndingCondition = 1;    % To stop the while loop from running
