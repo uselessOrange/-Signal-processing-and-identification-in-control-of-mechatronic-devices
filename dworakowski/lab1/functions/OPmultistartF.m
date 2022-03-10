@@ -1,6 +1,6 @@
 n=5;
 
-[best,meanms,stdms,Results,BestHistory,CurrentHistory,Step]=multistartF(n,14,9,10,1.8,1.2);
+[best,meanms,stdms,Results,BestHistory,CurrentHistory,Step]=multistartF(n,14,9,5,1.8,1.2);
 
 figure(1);
 xlabel('Iteration number');

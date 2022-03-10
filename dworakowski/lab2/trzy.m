@@ -7,7 +7,7 @@ clear;
 addpath C:\Users\mikol\Desktop\signals\dworakowski\FunctionsForOptimization
  
 %% Optimization task:
-FunctionForOptimization = str2func('nof_2D_manyminima_5');
+FunctionForOptimization = str2func('nof_2D_fewminima_5');
  
 %n,40,20,19,10,2,3
 %% Adjustable parameters:
@@ -56,16 +56,16 @@ end
 %     P_size=40;
 %     n = 35;
 %     Step = 0.5;
-MaxSteps = 38; 
-    P_size=21;
-    n = 14;
-    
-EndingCondition=0;
-  
+MaxSteps = 36; 
+    P_size=11;
+    n = 9;
+    Step = 0.8;
+
+    EndingCondition = 0;
     iter = 0;
     tic;
 
-    InitialStep =3; % Exploration/exploitation balance parameters:
+    InitialStep =2; % Exploration/exploitation balance parameters:
 P1 = 2;
 P2 = 3;
 
