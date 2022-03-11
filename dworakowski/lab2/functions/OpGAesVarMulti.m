@@ -1,9 +1,9 @@
 n=5;
 
 [bestresult,Results,meanGAesVarMulti,stdGAesVarMulti,BestHistory,CurrentHistory,Step] = ...
-    GAesVarMulti(n,32,31,10,1.5,2.2,2);
+    GAesVarMulti(n,31,32,11,1.8,2.8,1.8);
 
-figure(1);
+figure(3);
 xlabel('Iteration number');
     ylabel('Objective function value');
 for i=1:n
@@ -14,7 +14,7 @@ for i=1:n
     
 end
 
-figure(2);
+figure(4);
 plot(Step(1,:))
 xlabel('iteration');
 ylabel('mutation step value');
