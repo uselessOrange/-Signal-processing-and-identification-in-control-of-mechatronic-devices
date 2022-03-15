@@ -155,7 +155,7 @@ Population = NewPopulation;
     end
    meanGAesVar=mean(Results);
    stdGAesVar=std(Results);
-   bestresult(1,repetition)=min(Results);
+   bestresult=min(Results);
    bestindv(repetition)=Population(Indices(1));
 
  
