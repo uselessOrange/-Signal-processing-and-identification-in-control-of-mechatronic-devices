@@ -4,7 +4,7 @@ MaxRangeY = [-5 5];
 
 
 ViewVect = [0,90];
-FunctionPlotQuality = 0.05;
+FunctionPlotQuality = 0.01;
 InitialRangeX = MaxRangeX;      % This is the range from which we can draw points.
 InitialRangeY = MaxRangeY;
 
