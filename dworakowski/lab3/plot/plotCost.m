@@ -1,14 +1,14 @@
 function plotCost(dataset)  
-MaxRangeX = [-5 5];  % Range of parameters for optimization
-MaxRangeY = [-5 5];
+MaxRangeX = [-10 10];  % Range of parameters for optimization
+MaxRangeY = [-10 10];
 
 
 ViewVect = [0,90];
-FunctionPlotQuality = 0.01;
+FunctionPlotQuality = 0.1;
 InitialRangeX = MaxRangeX;      % This is the range from which we can draw points.
 InitialRangeY = MaxRangeY;
 
-    figure(1);
+    
         vectX = [MaxRangeX(1):FunctionPlotQuality:MaxRangeX(2)];
         vectY = [MaxRangeY(1):FunctionPlotQuality:MaxRangeY(2)];
         [X,Y] = meshgrid(vectX,vectY);    indx = 1;  indy = 1;
