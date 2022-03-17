@@ -85,7 +85,7 @@ Step(iter) = InitialStep * (1/(1+exp((iter-(MaxSteps/P1))/P2)));
 
 %assesing fitness
 for k = 1:P_size
-Population(k).OF = fcost(Population(k).Parameters(1,1),Population(k).Parameters(1,2),dataset);
+Population(k).OF = fcost(Population(k).Parameters(1,1),Population(k).Parameters(1,2),1,dataset);
 end
 
 %sorting individuals acc to fitness

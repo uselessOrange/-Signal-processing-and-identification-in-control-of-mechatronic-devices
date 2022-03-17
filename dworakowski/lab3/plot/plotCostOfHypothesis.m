@@ -1,4 +1,4 @@
-function plotCostOfHypothesis(x,y,dataset)
+function plotCostOfHypothesis(x,y,b,dataset)
 % plotCostOfHypothesis(line,x,y,dataset)
 
 
@@ -6,7 +6,7 @@ function plotCostOfHypothesis(x,y,dataset)
 
 Parameters.W1 = x;
 Parameters.W2 = y;
-Parameters.B = 1;
+Parameters.B = b;
 ErrorsA = 0;
 ErrorsB = 0;
 for k = 1:length(dataset)
@@ -32,5 +32,5 @@ end
 end
 xlabel('x');
 ylabel('y');
-x=linspace(-10:1:10);
-y=
+% x=linspace(-10:1:10);
+% y=

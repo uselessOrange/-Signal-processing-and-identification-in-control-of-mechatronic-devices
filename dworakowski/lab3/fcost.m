@@ -1,11 +1,11 @@
-function [cost]=fcost(x,y,dataset)
+function [cost]=fcost(x,y,b,dataset)
 % [cost]=fcost(x,y,dataset)
 
 
 
 Parameters.W1 = x;
 Parameters.W2 = y;
-Parameters.B = 1;
+Parameters.B = b;
 ErrorsA = 0;
 ErrorsB = 0;
 for k = 1:length(dataset)

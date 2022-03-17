@@ -37,7 +37,7 @@ end
    
     iter = 0;
    
-    step_x = 0.1;
+    step_x = 0.2;
     
 for NewX = MaxRangeX(1):step_x:MaxRangeX(2)
     for NewY = MaxRangeY(1):step_x:MaxRangeY(2)
