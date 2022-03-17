@@ -32,3 +32,5 @@ end
 end
 xlabel('x');
 ylabel('y');
+x=linspace(-10:1:10);
+y=

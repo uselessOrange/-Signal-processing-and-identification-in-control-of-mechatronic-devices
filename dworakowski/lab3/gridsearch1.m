@@ -11,8 +11,8 @@ function [ResultX,ResultY,BestHistory,CurrentHistory]=gridsearch1(FunctionPlot,d
 PointPlot=FunctionPlot;
  
 %% Adjustable parameters:
-MaxRangeX = [-10 10];  % Range of parameters for optimization
-MaxRangeY = [-10 10];
+MaxRangeX = [-5 5];  % Range of parameters for optimization
+MaxRangeY = [-5 5];
  
 MaxSteps = 100;         % How many iterations do we perform?
       % change to 0 If you want to get rid of the underlying function plot 
@@ -37,7 +37,7 @@ end
    
     iter = 0;
    
-    step_x = 0.05;
+    step_x = 0.1;
     
 for NewX = MaxRangeX(1):step_x:MaxRangeX(2)
     for NewY = MaxRangeY(1):step_x:MaxRangeY(2)

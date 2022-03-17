@@ -1,6 +1,6 @@
 function plotCost(dataset)  
-MaxRangeX = [-10 10];  % Range of parameters for optimization
-MaxRangeY = [-10 10];
+MaxRangeX = [-5 5];  % Range of parameters for optimization
+MaxRangeY = [-5 5];
 
 
 ViewVect = [0,90];
