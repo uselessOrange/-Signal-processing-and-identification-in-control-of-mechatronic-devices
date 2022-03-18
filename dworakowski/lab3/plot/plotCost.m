@@ -15,7 +15,7 @@ InitialRangeY = MaxRangeY;
         for x = vectX
             indy = 1;
             for y = vectY
-                Val(indx,indy) = fcost(x,y,dataset);
+                Val(indx,indy) = fcost(x,y,1,dataset);
                 indy = indy + 1;
             end
             indx = indx + 1;
