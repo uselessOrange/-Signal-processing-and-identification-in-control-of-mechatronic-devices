@@ -27,7 +27,7 @@ function anime(f,go,t1,t,s_int)
   hold on; grid on;
   set(ax_1, 'XColor', axis_color, 'YColor', axis_color, 'Color', 'w', 'Fontsize', 9);
   xlim( [ ( min(t)-abs(max(tf)-min(tf)) - 1 ) ( max(t)+abs(max(tf)-min(tf)) + 1 ) ] );
-  title('Graph of f(t) and go(t)', 'Color', axis_color );
+  title('x[n]', 'Color', axis_color );
   legend({'f(t)' 'go(t)'});
 
 % initialize animation the plot of 'g' is slided over the plot of 'f'
@@ -36,7 +36,7 @@ function anime(f,go,t1,t,s_int)
   ax_2 = subplot(3,1,2);
   p = stem(t, f);
   hold on; grid on;
-  title('Graphical Convolution: f(t) and g = go(-t1)', 'Color', axis_color );
+  title('Graphical Convolution: x[n]*h[n]', 'Color', axis_color );
   
 % plot g in the subplot number 2
   q = stem(tf, g, 'r');
@@ -61,7 +61,7 @@ function anime(f,go,t1,t,s_int)
   set(ax_3, 'XColor', axis_color, 'YColor', axis_color, 'Fontsize', 9);
   % xlim( [ min(tc)-1 max(tc)+1 ] );
   xlim( [ ( min(t)-abs(max(tf)-min(tf)) - 1 ) ( max(t)+abs(max(tf)-min(tf)) + 1 ) ] );
-  title('Convolutional Product c(t)', 'Color', axis_color );
+  title('Convolutional Product', 'Color', axis_color );
 
 % animation block
   for i=1:length(tc)
