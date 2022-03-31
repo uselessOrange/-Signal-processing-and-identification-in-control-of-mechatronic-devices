@@ -1,6 +1,8 @@
 function [step]=ufunc(n)
-if n>=0
-    step=1;
+for k=1:length(n)
+if n(k)>=0
+    step(k)=1;
 else
-    step=0;
+    step(k)=0;
+end
 end
