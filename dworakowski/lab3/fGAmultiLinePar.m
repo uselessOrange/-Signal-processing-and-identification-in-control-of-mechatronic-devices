@@ -1,16 +1,24 @@
 function [bestindv,bestresult,Results,meanGAesVar,stdGAesVar,BestHistory,CurrentHistory,Step]...
-    = fGAmultiLine(dimms,reps,MaxSteps,P_size,n,InitialStep,P1,P2,dataset)
+    = fGAmultiLinePar(dimms,reps,MaxSteps,P_size,n,InitialStep,P1,P2,dataset)
+
 
 tic;
-
 MaxRangeX = [-5 5];  
 MaxRangeY = [-5 5];
 InitialRangeX = MaxRangeX;      % This is the range from which we can draw points.
 InitialRangeY = MaxRangeY;
 
+for iter=1:MaxSteps
+Step(iter) = InitialStep * (1/(1+exp((iter-(MaxSteps/P1))/P2)));
+end
+meanGAesVar=zeros(1,reps);
+   stdGAesVar=zeros(1,reps);
+   bestresult=zeros(1,reps);
 
+BestHistory=zeros(reps,MaxSteps);
+CurrentHistory=zeros(reps,MaxSteps);
 
-for repetition = 1:reps
+parfor repetition = 1:reps
 
     EndingCondition = 0;
     iter = 0;
@@ -28,7 +36,7 @@ for repetition = 1:reps
     while(EndingCondition == 0)
 iter = iter + 1;
 
-Step(iter) = InitialStep * (1/(1+exp((iter-(MaxSteps/P1))/P2)));
+
 
 for k = 1:P_size
 
@@ -70,9 +78,7 @@ if(iter >= MaxSteps)
         
          Results(repetition) = BestHistory(end);
     end
-   meanGAesVar=mean(Results);
-   stdGAesVar=std(Results);
-   bestresult=min(Results);
+   
    bestindv(repetition)=Population(Indices(1));
 
  

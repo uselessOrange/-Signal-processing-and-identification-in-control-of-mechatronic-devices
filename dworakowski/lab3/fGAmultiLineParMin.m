@@ -1,5 +1,5 @@
 function [bestindv,bestresult,Results,meanGAesVar,stdGAesVar,BestHistory,CurrentHistory,Step]...
-    = fGAmultiLine(dimms,reps,MaxSteps,P_size,n,InitialStep,P1,P2,dataset)
+    = fGAmultiLineParMin(dimms,reps,MaxSteps,P_size,n,InitialStep,P1,P2,dataset)
 
 tic;
 
@@ -16,7 +16,7 @@ for repetition = 1:reps
     iter = 0;
 
 
-    for k = 1:P_size
+    parfor k = 1:P_size
         Population(k).OF = 5000;
         for i =1:dimms
             Population(k).Parameters.W1(i) = InitialRangeX(1) + rand()*(InitialRangeX(2) - InitialRangeX(1));
@@ -30,7 +30,7 @@ iter = iter + 1;
 
 Step(iter) = InitialStep * (1/(1+exp((iter-(MaxSteps/P1))/P2)));
 
-for k = 1:P_size
+parfor k = 1:P_size
 
    Population(k).OF = fcost(Population(k).Parameters.W1,Population(k).Parameters.W2,Population(k).Parameters.B,dataset);
 end
@@ -42,7 +42,7 @@ CurrentHistory(repetition,iter) = Population(Indices(floor(P_size/2))).OF;
 
 NewPopulation(1) = Population(Indices(1));
 
-for k = 2:1:P_size
+parfor k = 2:1:P_size
 ind1 = randi(n);
 ind2 = randi(n);
 
