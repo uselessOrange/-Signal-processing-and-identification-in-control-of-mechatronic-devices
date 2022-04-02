@@ -1,0 +1,37 @@
+function [x] = Filter_signal_HP(x,fs,cutoff)
+
+% Function performs high pass (HP) filtering in the frequency domain.
+
+% Adam Jablonski, EC Systems, 06-Sep-2013.
+
+% COMMENTS
+% 1. Works  for mod(N,2) = 0, i.e. even numbers only.
+% 2. After FFT we have:
+% [real_A; complex_A; complex_B; complex_;C real_B; complex_C; complex_B; complex_A]
+% I remove, for instance "complex_A" and "complex_B".
+% 3. It does not filter out the cutoff frequency.
+
+% INPUT
+% x      - vector of real time signal <1xN double>
+% fs     - sampling frequency in {Hz] <1x1>
+% cutoff - cutoff frequency of the HP filter in [Hz] <1x1> 
+
+% OUTPUT
+% x  - vector of filtered real time signal <1xN double>
+
+% EXEMPLARY USE
+% [x] = Filter_signal_HP(x,25000,10); % removes frequencies from 0 to 10 Hz
+
+x  = x(:);                          % force colums vector
+N  = length(x);
+df = fs/N;
+cuoff_index = ceil(cutoff/df);
+
+X = fft(x);
+
+X(1)                       = 0;    % Remove DC component
+X(2:cuoff_index)           = 0;
+X(end-cuoff_index + 2:end) = 0;
+
+x = ifft(X);
+
