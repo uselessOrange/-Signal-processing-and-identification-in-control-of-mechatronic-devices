@@ -1,5 +1,3 @@
-clear
-clc
 load('signal_1_wood_saw_decaying_pulse.mat');
 x=Basic_reading_Machine_1_Vibro_1(:,2);
 fs=Basic_reading_Machine_1_Vibro_1_metadata.SamplingRate;

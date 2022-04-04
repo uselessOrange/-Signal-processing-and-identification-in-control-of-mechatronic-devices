@@ -16,14 +16,11 @@ i=i+4;
 end
 
 %V split
-% Indices = randperm(length(V));
-% V_permutated = V(:,Indices);
+
 TR_number = ceil(length(V)*0.9);
 VA_number = ceil(length(V)*0);
 TE_number = ceil(length(V)*0.1);
-% TR_Vu = V_permutated(1:2,1:TR_number);
-% VA_Vu = V_permutated(1:2,TR_number+1:TR_number+VA_number);
-% TE_Vu = V_permutated(1:2,TR_number+VA_number+1:end);
+
 TR_Vs = V(3,1:TR_number);
 VA_Vs = V(3,TR_number+1:TR_number+VA_number);
 TE_Vs = V(3,TR_number+VA_number+1:end);
@@ -32,7 +29,11 @@ VA_Vu = V(1:2,TR_number+1:TR_number+VA_number);
 TE_Vu = V(1:2,TR_number+VA_number+1:end);
 
 
-save TR_V TR_V
-save VA_V VA_V
-save TE_V TE_V
+
+save TR_Vu TR_Vu
+save VA_Vu VA_Vu
+save TE_Vu TE_Vu
+save TR_Vs TR_Vs
+save VA_Vs VA_Vs
+save TE_Vs TE_Vs
 save V
