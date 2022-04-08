@@ -1,0 +1,30 @@
+[System]
+Name='gauss2mf2'
+Type='sugeno'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=2
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='input1'
+Range=[3.00004171428653 11.9999143073187]
+NumMFs=2
+MF1='in1mf1':'gauss2mf',[1.52875759861537 0.30007993637689 1.07179934945608 6.56751107655532]
+MF2='in1mf2':'gauss2mf',[3.03498777418025 10.163937234384 1.52875759861537 14.6998760852283]
+
+[Output1]
+Name='output'
+Range=[3.12857148965229e-06 0.999995103275352]
+NumMFs=2
+MF1='out1mf1':'constant',[-0.0498932591946437]
+MF2='out1mf2':'constant',[0.950213902417499]
+
+[Rules]
+1, 1 (1) : 1
+2, 2 (1) : 1

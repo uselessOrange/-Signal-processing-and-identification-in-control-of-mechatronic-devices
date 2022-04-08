@@ -1,0 +1,30 @@
+[System]
+Name='trimf2'
+Type='sugeno'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=2
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='input1'
+Range=[3.00004171428653 11.9999143073187]
+NumMFs=2
+MF1='in1mf1':'trimf',[-5.9998308787456 2.4870241079621 12.5922891062301]
+MF2='in1mf2':'trimf',[5.48123397909068 10.9179503857796 20.9930926457067]
+
+[Output1]
+Name='output'
+Range=[3.12857148965229e-06 0.999995103275352]
+NumMFs=2
+MF1='out1mf1':'constant',[0.0636420664379402]
+MF2='out1mf2':'constant',[1.10567869173294]
+
+[Rules]
+1, 1 (1) : 1
+2, 2 (1) : 1
