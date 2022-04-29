@@ -1,6 +1,6 @@
 rng('shuffle'); % To get different results each time
-Clusters.ClustersA = 5; % How many clusters of data exist in class 1?
-Clusters.ClustersB = 4; % How many clusters of class 2 exist?
+Clusters.ClustersA = 3; % How many clusters of data exist in class 1?
+Clusters.ClustersB = 3; % How many clusters of class 2 exist?
 % Definition of clusters centers
 Clusters.ACoordinates = randn(2,Clusters.ClustersA);
 Clusters.BCoordinates = randn(2,Clusters.ClustersB);

@@ -41,6 +41,7 @@ end
 
 BestHistory(repetition,iter) = Population(Indices(1)).OF;
 CurrentHistory(repetition,iter) = Population(Indices(floor(P_size/2))).OF;
+BestHistoricalindv(repetition,iter) = Population(Indices(1));
 
 NewPopulation(1) = Population(Indices(1));
 
@@ -70,10 +71,14 @@ FitnessOnValidation(repetition,iter)=fcost(Population(Indices(1)).Parameters.W1,
 
 Population = NewPopulation;
 
-if iter>10
-    if FitnessOnValidation(iter)>FitnessOnValidation(iter-10)
+[minval,placeofval]=min(FitnessOnValidation(repetition,:));
+
+if iter>5
+    if (FitnessOnValidation(iter)>minval)
+        if (placeofval<iter-5)
         EndingCondition = 1;
         disp('stopped eary on iter:');disp(iter);
+        end
     end
 if iter >= MaxSteps
         EndingCondition = 1; 
@@ -89,7 +94,7 @@ end
    meanGAesVar=mean(Results);
    stdGAesVar=std(Results);
    bestresult=min(Results);
-   bestindv(repetition)=Population(Indices(1));
+   bestindv(repetition)=BestHistoricalindv(repetition,placeofval);
 
  
    

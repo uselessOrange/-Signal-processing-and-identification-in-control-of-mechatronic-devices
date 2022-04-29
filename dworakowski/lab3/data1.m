@@ -1,4 +1,4 @@
-Samples = 1000; % How many data samples there are?
+Samples = 100; % How many data samples there are?
 DataDivision = 0.5; % How many data samples fall into which class?
 v = 2; % v parameter of T Student's distribution
 % Definition of data
