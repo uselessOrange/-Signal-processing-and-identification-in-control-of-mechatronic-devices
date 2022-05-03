@@ -70,20 +70,20 @@ end
 FitnessOnValidation(repetition,iter)=fcost(Population(Indices(1)).Parameters.W1,Population(Indices(1)).Parameters.W2,Population(Indices(1)).Parameters.B,Validation);
 
 Population = NewPopulation;
-
-[minval,placeofval]=min(FitnessOnValidation(repetition,:));
-
+clear minval
+clear placeofval
+[minval,placeofval]=min(flip(FitnessOnValidation(repetition,:)));
+placeofval=MaxSteps+1-placeofval;
 if iter>5
-    if (FitnessOnValidation(iter)>minval)
+    if (FitnessOnValidation(repetition,iter)> minval)
         if (placeofval<iter-5)
         EndingCondition = 1;
         disp('stopped eary on iter:');disp(iter);
         end
     end
-if iter >= MaxSteps
+    if iter >= MaxSteps
         EndingCondition = 1; 
-        
-    else 
+         
         
     end
        
