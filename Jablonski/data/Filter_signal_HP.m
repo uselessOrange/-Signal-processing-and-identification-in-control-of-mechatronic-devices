@@ -1,4 +1,4 @@
-function [x] = Filter_signal_HP(x,fs,cutoff)
+function [x,X] = Filter_signal_HP(x,fs,cutoff)
 
 % Function performs high pass (HP) filtering in the frequency domain.
 
