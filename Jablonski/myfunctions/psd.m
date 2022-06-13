@@ -1,6 +1,7 @@
-function [psdxav,f] = psd(x,fs,somwin,arg)
-%[psdxav,f] = psd(x,fs,somwin)
-[x,~]=datasplit(x,fs,somwin);
+function [psdxav,f] = psd(x,fs,somwin,overlap,arg)
+%[psdxav,f] = psd(x,fs,somwin,overlap,arg)
+%for plot arg =1 ,for plot un 10*log10 arg =2, else no plot
+[x,~]=datasplit(x,fs,somwin,overlap);
 [~,m,n,~,~,f] = params(x,fs);
 
 for i=1:m
@@ -17,7 +18,7 @@ for i=1:n/2
     psdxav(i)=mean(psdx(:,i));
 end
 if arg == 1
-    plot(f,psdxav)
+    stem(f,psdxav)
 elseif arg == 2
     plot(f,10*log10(psdxav))
 end
